@@ -1,0 +1,30 @@
+{
+  "info": {
+    "name": "CRUD Personas + Mascotas (1:N)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000" }
+  ],
+  "item": [
+    {
+      "name": "Personas",
+      "item": [
+        { "name": "1. Crear Ana", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"nombre\": \"Ana\",\n  \"edad\": 30,\n  \"email\": \"ana@mail.com\"\n}"}, "url": {"raw":"{{base_url}}/personas","host":["{{base_url}}"],"path":["personas"]} } },
+        { "name": "2. Listar (con mascotas)", "request": { "method": "GET", "url": {"raw":"{{base_url}}/personas","host":["{{base_url}}"],"path":["personas"]} } },
+        { "name": "3. Obtener una", "request": { "method": "GET", "url": {"raw":"{{base_url}}/personas/1","host":["{{base_url}}"],"path":["personas","1"]} } },
+        { "name": "4. Actualizar", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"edad\": 31\n}"}, "url": {"raw":"{{base_url}}/personas/1","host":["{{base_url}}"],"path":["personas","1"]} } },
+        { "name": "5. Eliminar", "request": { "method": "DELETE", "url": {"raw":"{{base_url}}/personas/1","host":["{{base_url}}"],"path":["personas","1"]} } }
+      ]
+    },
+    {
+      "name": "Mascotas",
+      "item": [
+        { "name": "1. Crear Firulais (perro de Ana)", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"nombre\": \"Firulais\",\n  \"especie\": \"perro\",\n  \"PersonaId\": 1\n}"}, "url": {"raw":"{{base_url}}/mascotas","host":["{{base_url}}"],"path":["mascotas"]} } },
+        { "name": "2. Crear Michi (gato de Ana)", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"nombre\": \"Michi\",\n  \"especie\": \"gato\",\n  \"PersonaId\": 1\n}"}, "url": {"raw":"{{base_url}}/mascotas","host":["{{base_url}}"],"path":["mascotas"]} } },
+        { "name": "3. Listar todas", "request": { "method": "GET", "url": {"raw":"{{base_url}}/mascotas","host":["{{base_url}}"],"path":["mascotas"]} } },
+        { "name": "4. Eliminar una", "request": { "method": "DELETE", "url": {"raw":"{{base_url}}/mascotas/1","host":["{{base_url}}"],"path":["mascotas","1"]} } }
+      ]
+    }
+  ]
+}
